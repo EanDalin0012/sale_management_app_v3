@@ -56,7 +56,9 @@
       "continue": "Continue"
     },
     "message": {
-      "enterValidEmail": "Please enter valid email."
+      "enterValidEmail": "Please enter valid email.",
+      "pleaseEnterYourEmail": "Please enter your Email.",
+      "pleaseEnterYourPassword": "Please enter your password."
     },
     "holder": {
       "enterYourEmail": "Enter your email",

@@ -1,0 +1,1 @@
+var fontDefault = 'Muli,Content';

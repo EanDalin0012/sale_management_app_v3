@@ -49,14 +49,16 @@
       "login": "ចូល",
       "email": "អ៊ីមែល",
       "password": "ពាក្យសម្ងាត់",
-      "dontHaveAnAccount": "កុំមានគណនី?",
+      "dontHaveAnAccount": "កុំមានគណនី ? ",
       "signUp": "ចុះឈ្នោះ",
       "rememberMe": "ចាំខ្ញុំ",
       "forgotPassword": "ភ្លេចលេខសំងាត់",
       "continue": "បន្ត"
     },
     "message": {
-      "enterValidEmail": "សូមបញ្ចូលអ៊ីមែលដែលមានសុពលភាព"
+      "enterValidEmail": "សូមបញ្ចូលអ៊ីមែលដែលមានសុពលភាព",
+      "pleaseEnterYourEmail": "សូមបញ្ចូលអ៊ីមែលរបស់អ្នក",
+      "pleaseEnterYourPassword": "សូមបញ្ចូលពាក្យសម្ងាត់របស់្នក"
     },
     "holder": {
       "enterYourEmail": "បញ្ចូលអ៊ីមែលរបស់អ្នក",

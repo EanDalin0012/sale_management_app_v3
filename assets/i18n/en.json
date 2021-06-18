@@ -1,0 +1,331 @@
+{
+  "common":{
+    "label": {
+      "ID": "ID",
+      "edit": "Edit",
+      "delete": "Delete",
+      "yes": "Yes",
+      "no": "No",
+      "ok": "OK",
+      "next": "Next",
+      "details": "Details",
+      "confirm": "Confirm",
+      "remove": "Remove",
+      "add": "Add",
+      "save": "Save",
+      "update": "Update",
+      "completeYourDetails": "Complete your details",
+      "remark": "Remark",
+      "success": "Success",
+      "back": "Back",
+      "isCompleted": "{} is completed",
+      "browse": "Browse",
+      "exitApp": "Exit App",
+      "doYouWantToExitApp": "Do you want to exit app?",
+      "isLoadingCanNotBack": "Is loading can not back"
+    },
+    "holder": {
+      "enterRemark": "Enter remark",
+      "browseToImage": "Browse to Image"
+    }
+  },
+  "setting": {
+    "label": {
+      "setting": "Setting",
+      "userInformation": "User Information",
+      "chooseLanguage": "Language Choose",
+      "saleFromStock": "Sale From Stock",
+      "security": "Security",
+      "changePIN": "Change PIN",
+      "useFingerprintForLogin": "Use Fingerprint For Login",
+      "changedLanguage": "Change Language to {}",
+      "darkMode": "Dark Mode",
+      "darkModeEnable": "Dark Mode enable",
+      "darkModeDisable": "Dark Mode disable"
+    }
+  },
+  "login": {
+    "label": {
+      "login": "Login",
+      "email": "Email",
+      "password": "Password",
+      "dontHaveAnAccount": "Don’t have an account ? ",
+      "signUp": "Sign Up",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot Password",
+      "continue": "Continue"
+    },
+    "message": {
+      "enterValidEmail": "Please enter valid email."
+    },
+    "holder": {
+      "enterYourEmail": "Enter your email",
+      "enterYourPassword": "Enter your password"
+    }
+  },
+  "signUp": {
+    "label": {
+      "signUp": "Sign Up",
+      "createAccount": "Create Account",
+      "completeDetails": "Complete your details or continue \n with social media",
+      "create": "Create",
+      "firstName": "First Name",
+      "confirmPassword": "Confirm Password",
+      "password": "Password",
+      "lastName": "Last Name",
+      "email": "Email"
+    },
+    "holder": {
+      "enterYourFistName": "Enter your fist name",
+      "enterYourLastName": "Enter your last name",
+      "enterConfirmPassword": "Enter your confirm password",
+      "enterYourPassword": "Enter your password",
+      "enterYourEmail": "Enter your email"
+    },
+    "message": {
+      "pleaseEnterConfirmPassword": "Please enter your confirm password.",
+      "pleaseEnterPassword": "Please enter your password.",
+      "pleaseEnterFirstName": "Please enter your first name.",
+      "pleaseEnterLastName": "Please enter your last name.",
+      "pleaseEnterEmail": "Please enter your email.",
+      "pleaseEnterValidEmail": "Please Enter Valid Email."
+    }
+  },
+  "genderForm": {
+     "label": {
+       "gender": "Gender",
+       "male": "Male",
+       "female": "Female"
+     }
+  },
+  "home": {
+    "label": {
+      "home": "Home"
+    }
+  },
+  "drawer": {
+    "label": {
+      "contactUs": "Contact Us",
+      "termsCondition": "Terms & Condition",
+      "settings": "Settings",
+      "logout": "Logout"
+    }
+  },
+  "sheetContainer": {
+    "label": {
+      "menu": "Menu",
+      "category": "Category",
+      "stock": "Stock",
+      "vendor": "Vendor",
+      "product": "Product",
+      "package": "Package",
+      "member": "Member",
+      "imports": "Imports"
+    }
+  },
+  "category": {
+    "label": {
+      "category": "Category",
+      "categoryName": "Category Name",
+      "categoryList": "Category List",
+      "addNewCategory": "Add New Category",
+      "registerCategory": "Register Category",
+      "name": "Name",
+      "updateCategory": "Update Category"
+    },
+    "message": {
+      "doYouWantToDeleteCategory": "Do you want to delete category {}",
+      "pleaseEnterCategoryName": "Please enter category name.",
+      "isCompleted": "{} is completed"
+    },
+    "holder": {
+      "enterCategoryName": "Enter category name."
+    }
+  },
+  "product": {
+    "label": {
+      "product": "Product",
+      "productName": "Product Name",
+      "productList": "Product List",
+      "addNewProduct": "Add New Product",
+      "registerProduct": "Register Product",
+      "updateProduct": "Update Product",
+      "name": "Name",
+      "selectProduct": "Select Product",
+      "category": "Category",
+      "browse": "Browse"
+    },
+    "message": {
+      "doYouWantToDeleteProduct": "Do you want to delete product {}",
+      "pleaseEnterName": "Please enter product name.",
+      "pleaseChooseCategory": "Please choose category."
+    },
+    "holder": {
+      "enterProductName": "Enter product name",
+      "selectCategory": "Select Category",
+      "browseToImage": "Brows to image"
+    }
+  },
+  "categoryDropdown": {
+    "label": {
+      "chooseCategory": "Choose Category"
+    }
+  },
+  "packageProduct": {
+    "label": {
+      "packageProduct": "Package Product",
+      "packageSelectProduct": "Select Package Product",
+      "packageProductList": "Package Product List",
+      "product": "Product",
+      "addNewProductPackage": "Add New Package Product",
+      "registerPackageProduct": "Register Package Product",
+      "updatePackageProduct": "Update Package Product",
+      "name": "Name",
+      "quantity": "Quantity",
+      "price": "Price"
+    },
+    "holder": {
+      "enterPackageProductName": "Enter package product name",
+      "enterQuantity": "Enter quantity",
+      "enterPrice": "Enter price"
+    },
+    "message": {
+      "pleaseEnterPackageProduct": "Please enter package product name.",
+      "pleaseEnterQuantity": "Please enter quantity.",
+      "pleaseEnterPrice": "Please enter price.",
+      "pleaseSelectProduct": "Please select product.",
+      "doYouWantDeletePackageProduct": "Do you want to delete package product {}"
+    }
+  },
+  "member":{
+    "label": {
+      "member": "Member",
+      "memberList": "Member List",
+      "registerMember": "Register Member",
+      "updateMember": "Update Member",
+      "name":"Name",
+      "phone": "Phone"
+    },
+    "message": {
+      "doYouWantToDeleteMember": "Do you want to delete member {} ?",
+      "pleaseEnterMemberName": "please enter member name.",
+      "pleaseEnterPhoneNumber": "please enter phone number."
+    },
+    "holder": {
+      "enterMemberName": "Enter member name",
+      "enterPhoneNumber": "Enter phone number"
+    }
+  },
+  "vendor": {
+    "label": {
+      "vendor": "vendor",
+      "vendorList": "Vendor List",
+      "registerVendor": "Register Vendor",
+      "updateVendor": "Update Vendor",
+      "name": "Name",
+      "phone": "Phone",
+      "email": "Email",
+      "selectVendors": "Select Vendors"
+    },
+    "message": {
+      "pleaseEnterVendorName": "please enter vendor name.",
+      "pleaseEnterPhoneNumber": "please enter phone number.",
+      "pleaseEnterEmail": "please enter email."
+    },
+    "holder": {
+      "enterVendorName": "Enter vendor name",
+      "enterPhoneNumber": "Enter phone number",
+      "enterEmail": "Enter email"
+    }
+  },
+  "stock": {
+    "label": {
+      "stock": "Stock",
+      "stockList": "Stock List",
+      "addNewStock": "Add New Stock",
+      "name": "Name",
+      "registerStock": "Register Stock",
+      "updateStock": "Update Stock"
+    },
+    "message": {
+      "pleaseEnterStockName": "please enter Stock name.",
+      "doYouWantToDeleteStock": "Do you want to d delete stock {} ?"
+    },
+    "holder": {
+      "enterStockName": "Enter Stock name"
+    }
+  },
+  "import": {
+    "label": {
+      "import": "Import",
+      "importItems": "Import Items",
+      "importList": "Import List",
+      "importNewProduct": "Import New Product",
+      "product": "Product",
+      "packageProduct": "Package Product",
+      "vendor": "Vendor",
+      "quantity": "Quantity",
+      "total": "Total",
+      "totalParam": "Total : {}",
+      "price": "Price",
+      "no": "No",
+      "action": "Action",
+      "importProduct": "Import Product",
+      "allTransactionImport": "All Transaction Import"
+    },
+    "message": {
+      "pleaseEnterQuantity": "please enter quantity.",
+      "pleaseEnterTotal": "please enter total.",
+      "pleaseSelectProduct": "please select product.",
+      "pleaseSelectVendor": "please select Vendor.",
+      "doYouWantToDeleteStock": "Do you want to d delete import {} ?",
+      "pleaseSelectPackageProduct": "please select package product",
+      "pleaseSelectProductFirst.": "Please select product first."
+    },
+    "holder": {
+      "selectProduct": "Select product",
+      "selectPackageProduct": "Select package product",
+      "selectVendor": "Select vendor",
+      "enterQuantity": "Enter quantity",
+      "enterTotal": "Enter total"
+    }
+  },
+  "sale": {
+    "label": {
+      "sale": "Sale",
+      "saleItem": "Sale Items",
+      "saleItemSelect": "Selected Items",
+      "completeYourDetails": "Complete your details. \\n Please check your items ready then click confirm.",
+      "customer": "Customer",
+      "member": "Member",
+      "phone": "Phone Number",
+      "viewItems": "View Items",
+      "customerName": "Customer Name",
+      "transactionID": "Transaction ID",
+      "total": "Total",
+      "saleDetails": "Sale details",
+      "transactionDate": "Transaction Date",
+      "sellProduct": "Sell Product",
+      "sell": "Sell",
+      "amount": "Amount",
+      "transID": "Trans ID"
+    },
+    "message": {
+      "pleaseEnterCustomerName": "Please enter customer name.",
+      "pleaseEnterPhoneNumber": "Please enter phone number.",
+      "pleaseChooseMember.": "Please choose member.",
+      "saleItemZeroMessage": "Your sale items is zero. Please add sale items!"
+    },
+    "holder": {
+      "enterCustomerName": "Enter customer name",
+      "enterPhoneNumber": "Enter phone number",
+      "selectMember": "Select member"
+    }
+  },
+  "search": {
+    "label": {
+      "searchName": "Search name",
+      "search": "Search"
+    }
+  }
+}

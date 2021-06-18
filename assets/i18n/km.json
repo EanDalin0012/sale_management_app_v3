@@ -1,0 +1,340 @@
+{
+  "common":{
+    "label": {
+      "ID": "លេខសម្គាល់",
+      "edit": "កែសម្រួល",
+      "delete": "លុប",
+      "yes": "បាទ/ចាស",
+      "no": "ទេ",
+      "ok": "យល់ព្រម",
+      "next": "បន្ទាប់",
+      "details": "ព័ត៌មានលម្អិត",
+      "confirm": "បញ្ជាក់",
+      "remove": "ដកចេញ",
+      "add": "បន្ថែម",
+      "save": "រក្សាទុក",
+      "update": "ធ្វើបច្ចុប្បន្នភាព",
+      "completeYourDetails": "បំពេញព័ត៌មានលម្អិតរបស់អ្នក",
+      "remark": "ការកត់សម្គាល់",
+      "success": "ជោគជ័យ",
+      "back": "ថយក្រោយ",
+      "isCompleted": "{} ត្រូវបានបញ្ចប់",
+      "browse": "រុករក",
+      "exitApp": "ចាកចេញពីកម្មវិធី",
+      "doYouWantToExitApp": "តើអ្នកចង់ចាកចេញពីកម្មវិធីទេ?",
+      "isLoadingCanNotBack": "កំពុងផ loading មិនអាចត្រឡប់មកវិញបានទេ"
+    },
+    "holder": {
+      "enterRemark": "បញ្ចូលការកត់សម្គាល់",
+      "browseToImage": "រកមើលរូបភាព"
+    }
+  },
+  "setting": {
+    "label": {
+      "setting": "ការកំណត់",
+      "userInformation": "ព័ត៌មានអ្នកប្រើប្រាស់",
+      "chooseLanguage": "ជ្រើសរើសភាសា",
+      "saleFromStock": "លក់កាត់ចេញស្តុក",
+      "security": "សន្តិសុខ",
+      "changePIN": "ប្តូរលេខសម្ងាត់",
+      "useFingerprintForLogin": "ប្រើស្នាមម្រាមដៃសម្រាប់ចូល",
+      "changedLanguage": "ប្តូរភាសាទៅ{}",
+      "darkMode": "របៀបងងឹត",
+      "darkModeEnable": "របៀបងងឹតអាចប្រើបាន",
+      "darkModeDisable": "បិទរបៀបងងឹត"
+    }
+  },
+  "login": {
+    "label": {
+      "login": "ចូល",
+      "email": "អ៊ីមែល",
+      "password": "ពាក្យសម្ងាត់",
+      "dontHaveAnAccount": "កុំមានគណនី?",
+      "signUp": "ចុះឈ្នោះ",
+      "rememberMe": "ចាំខ្ញុំ",
+      "forgotPassword": "ភ្លេចលេខសំងាត់",
+      "continue": "បន្ត"
+    },
+    "message": {
+      "enterValidEmail": "សូមបញ្ចូលអ៊ីមែលដែលមានសុពលភាព"
+    },
+    "holder": {
+      "enterYourEmail": "បញ្ចូលអ៊ីមែលរបស់អ្នក",
+      "enterYourPassword": "បញ្ចូលពាក្យសម្ងាត់របស់អ្នក"
+    }
+  },
+  "signUp": {
+    "label": {
+      "signUp": "ចុះឈ្នោះ",
+      "createAccount": "បង្កើតគណនី",
+      "completeDetails": "បំពេញព័ត៌មានលម្អិតរបស់អ្នកឬបន្ត \nជាមួយប្រព័ន្ធផ្សព្វផ្សាយសង្គម",
+      "create": "បង្កើត",
+      "firstName": "នាមខ្លួន",
+      "confirmPassword": "បញ្ជាក់ពាក្យសម្ងាត់",
+      "password": "ពាក្យសម្ងាត់",
+      "lastName": "នាមត្រកូល",
+      "email": "អ៊ីមែល"
+    },
+    "holder": {
+      "enterYourFistName": "បញ្ចូលឈ្មោះដំបូងរបស់អ្នក",
+      "enterYourLastName": "បញ្ចូលនាមត្រកូលរបស់អ្នក",
+      "enterConfirmPassword": "បញ្ចូលពាក្យសម្ងាត់បញ្ជាក់របស់អ្នក",
+      "enterYourPassword": "បញ្ចូលពាក្យសម្ងាត់របស់អ្នក",
+      "enterYourEmail": "បញ្ចូលអ៊ីមែលរបស់អ្នក"
+    },
+    "message": {
+      "pleaseEnterConfirmPassword": "សូមបញ្ចូលពាក្យសម្ងាត់បញ្ជាក់របស់អ្នក",
+      "pleaseEnterPassword": "សូមបញ្ចូលពាក្សម្ងាត់របស់អ្នក",
+      "pleaseEnterFirstName": "សូមបញ្ចូលនាមខ្លួនរបស់អ្នក",
+      "pleaseEnterLastName": "សូមបញ្ចូលនាមត្រកូលរបស់អ្នក",
+      "pleaseEnterEmail": "សូមបញ្ចូលអ៊ីមែលរបស់អ្នក",
+      "pleaseEnterValidEmail": "សូមបញ្ចូលអ៊ីមែលដែលមានសុពលភាព"
+    }
+  },
+  "genderForm": {
+    "label": {
+      "gender": "ភេទ",
+      "male": "ប្រុស",
+      "female": "ស្រី"
+    }
+  },
+  "home": {
+    "label": {
+      "home": "Home"
+    }
+  },
+  "drawer": {
+    "label": {
+      "contactUs": "ទាក់ទងមកពួកយើង",
+      "termsCondition": "ល័ក្ខខ័ណ្ឌ",
+      "settings": "ការកំណត់",
+      "logout": "ចាកចេញ"
+    }
+  },
+  "sheetContainer": {
+    "label": {
+      "menu": "មឺនុយ",
+      "category": "ប្រភេទ",
+      "stock": "ស្តុក",
+      "vendor": "អ្នកផ្គត់ផ្គង",
+      "product": "ផលិតផល",
+      "package": "កញ្ចប់តំណាង",
+      "member": "សមាជិក",
+      "imports": "ការនាំចូល"
+    }
+  },
+  "category": {
+    "label": {
+      "category": "ប្រភេទ",
+      "categoryName": "ឈ្មោះប្រភេទ",
+      "categoryList": "បញ្ជីប្រភេទ",
+      "addNewCategory": "បន្ថែមប្រភេទថ្មី",
+      "registerCategory": "ចុះឈ្មោះប្រភេទ",
+      "name": "ឈ្មោះ",
+      "updateCategory": "ធ្វើបច្ចុប្បន្នភាពប្រភេទ"
+    },
+    "message": {
+      "doYouWantToDeleteCategory": "តើអ្នកចង់លុបប្រភេទទេ {}",
+      "pleaseEnterCategoryName": "សូមបញ្ចូលឈ្មោះប្រភេទ",
+      "isCompleted": "{} ត្រូវបានបញ្ចប់"
+    },
+    "holder": {
+      "enterCategoryName": "បញ្ចូលឈ្មោះប្រភេទ."
+    }
+  },
+  "product": {
+    "label": {
+      "product": "ផលិតផល",
+      "productName": "ឈ្មោះផលិតផល",
+      "productList": "បញ្ជីផលិតផល",
+      "addNewProduct": "បន្ថែមផលិតផលថ្មី",
+      "registerProduct": "ចុះឈ្មោះផលិតផល",
+      "updateProduct": "ធ្វើបច្ចុប្បន្នភាពផលិតផល",
+      "name": "ឈ្មោះ",
+      "selectProduct": "ជ្រើសរើសផលិតផល",
+      "category": "ប្រភេទ",
+      "browse": "រុករក"
+    },
+    "message": {
+      "doYouWantToDeleteProduct": "តើអ្នកចង់លុបផលិតផលទេ {} ?",
+      "pleaseEnterName": "សូមបញ្ចូលឈ្មោះផលិតផល",
+      "pleaseChooseCategory": "សូមជ្រើសរើសប្រភេទ"
+    },
+    "holder": {
+      "enterProductName": "បញ្ចូលឈ្មោះផលិតផល",
+      "selectCategory": "ជ្រើសរើសប្រភេទ",
+      "browseToImage": "រុករករូបភាព"
+    }
+  },
+  "categoryDropdown": {
+    "label": {
+      "chooseCategory": "ជ្រើសរើសប្រភេទ"
+    }
+  },
+  "packageProduct": {
+    "label": {
+      "packageProduct": "កញ្ចប់តំណាង",
+      "packageSelectProduct": "ជ្រើសរើសកញ្ចប់តំណាង",
+      "packageProductList": "បញ្ជីកញ្ចប់តំណាង",
+      "product": "ផលិតផល",
+      "addNewProductPackage": "បន្ថែមកញ្ចប់តំណាងថ្មី",
+      "registerPackageProduct": "ចុះឈ្មោះកញ្ចប់តំណាង",
+      "updatePackageProduct": "ធ្វើបច្ចុប្បន្នភាពកញ្ចប់តំណាង",
+      "name": "ឈ្មោះ",
+      "quantity": "ចំនួន",
+      "price": "តម្លៃ"
+    },
+    "holder": {
+      "enterPackageProductName": "បញ្ចូលឈ្មោះកញ្ចប់តំណាង",
+      "enterQuantity": "បញ្ចូលចំនួន",
+      "enterPrice": "បញ្ចូលតម្លៃ"
+    },
+    "message": {
+      "pleaseEnterPackageProduct": "សូមបញ្ចូលឈ្មោះកញ្ចប់តំណាង",
+      "pleaseEnterQuantity": "សូមបញ្ចូលចំនួន",
+      "pleaseEnterPrice": "សូមបញ្ចូលតម្លៃ",
+      "pleaseSelectProduct": "សូមជ្រើសរើសផលិតផល",
+      "doYouWantDeletePackageProduct": "តើអ្នកចង់លុបកញ្ចប់តំណាង {}"
+    }
+  },
+  "member":{
+    "label": {
+      "member": "សមាជិក",
+      "memberList": "បញ្ជីសមាជិក",
+      "registerMember": "ចុះឈ្មោះសមាជិក",
+      "updateMember": "ធ្វើបច្ចុប្បន្នភាពសមាជិក",
+      "name":"ឈ្មោះ",
+      "phone": "លេខទូរស័ព្ទ"
+    },
+    "message": {
+      "doYouWantToDeleteMember": "តើអ្នកចង់លុបសមាជិក{}ទេ?",
+      "pleaseEnterMemberName": "សូមបញ្ចូលឈ្មោះសមាជិក",
+      "pleaseEnterPhoneNumber": "សូមបញ្ចូលលេខទូរស័ព្ទ"
+    },
+    "holder": {
+      "enterMemberName": "បញ្ចូលឈ្មោះសមាជិក",
+      "enterPhoneNumber": "បញ្ចូលលេខទូរស័ព្ទ"
+    }
+  },
+  "vendor": {
+    "label": {
+      "vendor": "អ្នកផ្គត់ផ្គង",
+      "vendorList": "បញ្ជីអ្នកផ្គត់ផ្គង",
+      "registerVendor": "ចុះឈ្មោះអ្នកផ្គត់ផ្គង",
+      "updateVendor": "ធ្វើបច្ចុប្បន្នអ្នកផ្គត់ផ្គង",
+      "name": "ឈ្មោះ",
+      "phone": "លេខទូរស័ព្ទ",
+      "email": "អ៊ីមែល",
+      "selectVendors": "ជ្រើសរើសអ្នកផ្គត់ផ្គង"
+    },
+    "message": {
+      "pleaseEnterVendorName": "សូមបញ្ចូលឈ្មឈ្មោះអ្នកផ្គត់ផ្គង",
+      "pleaseEnterPhoneNumber": "សូមបញ្ចូលលេខទូរស័ព្ទ",
+      "pleaseEnterEmail": "សូមបញ្ចូលអ៊ីមែល"
+    },
+    "holder": {
+      "enterVendorName": "បញ្ចូលឈ្មឈ្មោះអ្នកផ្គត់ផ្គង",
+      "enterPhoneNumber": "បញ្ចូលលេខទូរស័ព្ទ",
+      "enterEmail": "បញ្ចូលអ៊ីមែល"
+    }
+  },
+  "stock": {
+    "label": {
+      "stock": "ស្តុក",
+      "stockList": "បញ្ជីស្តុក",
+      "addNewStock": "បន្ថែមស្តុកថ្មី",
+      "name": "ឈ្មោះ",
+      "registerStock": "ចុះឈ្មោះស្តុក",
+      "updateStock": "ធ្វើបច្ចុប្បន្នភាពស្តុក"
+    },
+    "message": {
+      "pleaseEnterStockName": "សូមបញ្ចូលឈ្មោះស្តុក",
+      "doYouWantToDeleteStock": "តើអ្នកចង់លុបស្តុក {} ទេ?"
+    },
+    "holder": {
+      "enterStockName": "បញ្ចូលឈ្មោះស្តុក"
+    }
+  },
+  "import": {
+    "label": {
+      "import": "នាំចូល",
+      "importItems": "នាំចូលទំនិញ",
+      "importList": "បញ្ជីនាំចូល",
+      "importNewProduct": "នាំចូលផលិតផលថ្មី",
+      "product": "ផលិតផល",
+      "packageProduct": "កញ្ចប់តំណាង",
+      "vendor": "អ្នកផ្គត់ផ្គង",
+      "quantity": "ចំនួន",
+      "total": "សរុប",
+      "totalParam": "តម្លៃ : {}",
+      "price": "តម្លៃ",
+      "no": "លេខរៀង",
+      "action": "សកម្មភាព",
+      "importProduct": "នាំចូលផលិតផល",
+      "allTransactionImport": "រាល់ប្រតិបត្តិការនាំចូលទាំងអស់"
+    },
+    "message": {
+      "pleaseEnterQuantity": "សូមបញ្ចូលចំនួន",
+      "pleaseEnterTotal": "សូមបញ្ចូលសរុប",
+      "pleaseSelectProduct": "សូមជ្រើសរើសផលិតផល",
+      "pleaseSelectVendor": "សូមជ្រើសរើសអ្នកផ្គត់ផ្គង",
+      "doYouWantToDeleteStock": "តើអ្នកចង់លុបការនាំចូល {} ទេ?",
+      "pleaseSelectPackageProduct": "សូមជ្រើសរើសកញ្ចប់តំណាង",
+      "pleaseSelectProductFirst": "សូមជ្រើសរើសផលិតផលជាមុនសិន"
+    },
+    "holder": {
+      "selectProduct": "ជ្រើសរើសផលិតផល",
+      "selectPackageProduct": "ជ្រើសរើសកញ្ចប់តំណាង",
+      "selectVendor": "ជ្រើសរើសអ្នកផ្គត់ផ្គង",
+      "enterQuantity": "សូមបញ្ចូលចំនួន",
+      "enterTotal": "បញ្ចូលសរុប"
+    }
+  },
+  "sale": {
+    "label": {
+      "sale": "លក់",
+      "saleItem": "លក់ផលិតផល",
+      "saleItemSelect": "ផលិតផលបានជ្រើសរើស",
+      "completeYourDetails": "បំពេញព័ត៌មានលម្អិតរបស់អ្នក \n សូមពិនិត្យមើលផលិតផលរបស់អ្នករួចចុចបញ្ជាក់",
+      "customer": "អតិថិជន",
+      "member": "សមាជិក",
+      "phone": "លេខទូរសព្",
+      "viewItems": "ពិនិត្រផលិតផល",
+      "customerName": "ឈ្មោះអតិថិជន",
+      "transactionID": "លេខសម្គាល់ប្រតិបត្ដិការ",
+      "total": "សរុប",
+      "saleDetails": "ព័ត៌មានលម្អិតការលក់",
+      "transactionDate": "ថ្ងៃធ្វើប្រតិបត្តិការ",
+      "sellProduct": "ផលិតផលដែលបានលក់",
+      "sell": "លក់",
+      "amount": "ចំនួនទឹកប្រាក់",
+      "transID": "លេខសម្គាល់ប្រតិបត្ដិការ"
+    },
+    "message": {
+      "pleaseEnterCustomerName": "សូមបញ្ចូលឈ្មោះអតិថិជន",
+      "pleaseEnterPhoneNumber": "សូមបញ្ចូលលេខទូរស័ព្ទ",
+      "pleaseChooseMember.": "សូមជ្រើសរើសសមាជិក",
+      "saleItemZeroMessage": "Items លក់របស់អ្នកគឺសូន្យ។ សូមបន្ថែម Items លក់របស់អ្នក!"
+    },
+    "holder": {
+      "enterCustomerName": "បញ្ចូលឈ្មោះអតិថិជន",
+      "enterPhoneNumber": "បញ្ចូលលេខទូរស័ព្ទ",
+      "selectMember": "ជ្រើសរើសសមាជិក"
+    }
+  },
+  "search": {
+    "label": {
+      "searchName": "ស្វែងរកដោយឈ្មោះ",
+      "search": "ស្វែងរកដ"
+    }
+  },
+  "title": "test",
+  "day": {
+    "zero": "{} days",
+    "one": "{} day",
+    "two": "{} days",
+    "few": "{} few days",
+    "many": "{} many days",
+    "other": "{} other days"
+  }
+}

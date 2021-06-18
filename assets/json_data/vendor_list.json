@@ -1,0 +1,17 @@
+{
+  "vendors": [
+    {
+      "id": 1,
+      "name": "P-White",
+      "phone": "0966555879",
+      "email": "P-White@gmail.com",
+      "remark": "P-White"
+    },{
+      "id": 2,
+      "name": "គ្រូសារកក់ក្តៅ",
+      "phone": "0966555879",
+      "email": "គ្រូសារកក់ក្តៅ@gmail.com",
+      "remark": "គ្រូសារកក់ក្តៅ"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "categoryList": [
+    {
+      "id": 1,
+      "name": "Le",
+      "remark": "Le"
+    },{
+      "id": 2,
+      "name": "Scrub",
+      "remark": "Scrub"
+    },{
+      "id": 3,
+      "name": "ទឺកដោះគោស្តូត",
+      "remark": "ទឺកដោះគោស្តូត"
+    }
+  ]
+}

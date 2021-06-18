@@ -1,0 +1,35 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "customerName": "Ean Dalin",
+      "phone": "0966555879",
+      "remark": "Dalin",
+      "url": ""
+    },{
+      "id": 2,
+      "customerName": "Chhay Sopheary",
+      "phone": "0967194455",
+      "remark": "Sopheary",
+      "url": ""
+    },{
+      "id": 3,
+      "customerName": "Touy Tinay",
+      "phone": "0975432585",
+      "remark": "Tinay",
+      "url": ""
+    },{
+      "id": 5,
+      "customerName": "Khun Paly",
+      "phone": "0975432589",
+      "remark": "Tinay",
+      "url": ""
+    },{
+      "id": 6,
+      "customerName": "Chiev Raksmey",
+      "phone": "0968818342",
+      "remark": "Raksmey",
+      "url": ""
+    }
+  ]
+}

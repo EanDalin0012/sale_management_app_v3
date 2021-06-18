@@ -1,0 +1,27 @@
+{
+  "imports": [
+    {
+      "id": 1,
+      "name": "P-White",
+      "remark": "P-White",
+      "categoryID": 1,
+      "totalQuantity": 200,
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0tjwfGCu567kZZW8pFpoHut0MHSWsKPDng&usqp=CAU"
+    },
+    {
+      "id": 2,
+      "name": "ទឹកដោះគោស្តួត",
+      "remark": "ទឹកដោះគោស្តួត",
+      "categoryID": 2,
+      "totalQuantity": 100,
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0tjwfGCu567kZZW8pFpoHut0MHSWsKPDng&usqp=CAU"
+    },{
+      "id": 3,
+      "name": "Tamarind scrub",
+      "remark": "Tamarind scrub",
+      "categoryID": 3,
+      "totalQuantity": 50,
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz0tjwfGCu567kZZW8pFpoHut0MHSWsKPDng&usqp=CAU"
+    }
+  ]
+}

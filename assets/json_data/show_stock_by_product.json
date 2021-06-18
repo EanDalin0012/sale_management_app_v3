@@ -1,0 +1,35 @@
+{
+  "stocks": [
+    {
+      "productID": 1,
+      "productName": "P-White",
+      "sell": {
+        "quantity": 100,
+        "total": 1000.0
+      },
+      "inStock":{
+        "quantity": 50
+      }
+    },{
+      "productID": 2,
+      "productName": "ទឹកដោះគោស្តួត",
+      "sell": {
+        "quantity": 150,
+        "total": 1100.0
+      },
+      "inStock":{
+        "quantity": 50
+      }
+    },{
+      "productID": 3,
+      "productName": "Tamarind scrub",
+      "sell": {
+        "quantity": 200,
+        "total": 900.0
+      },
+      "inStock":{
+        "quantity": 200
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "saleDetails": [
+    {
+      "id": 1,
+      "name": "ទឹកដោះគោស្តួត",
+      "quantity": 10,
+      "total": 50,
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlhtrDep-KsNpg_9XRROAFjz-QMt7QAhbpdg&usqp=CAU"
+    },
+    {
+      "id": 2,
+      "name": "P-White",
+      "quantity": 5,
+      "total": 50,
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlhtrDep-KsNpg_9XRROAFjz-QMt7QAhbpdg&usqp=CAU"
+    }
+  ]
+}

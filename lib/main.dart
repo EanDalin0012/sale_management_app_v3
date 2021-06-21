@@ -101,7 +101,7 @@ class _MyAppState extends State<MyApp> {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      //home: chose ? const LogInScreen() : const ChooseLanguageScreen(),
+      // home: chose ? const LogInScreen() : const ChooseLanguageScreen(),
       home: const InitializeScreen(),
     );
   }

@@ -4,12 +4,16 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_overlay/loading_overlay.dart';
+import 'package:sale_management/screens/home/home_screen.dart';
+import 'package:sale_management/shares/database_sqflite/authorization_sqflite.dart';
+import 'package:sale_management/shares/model/key/authorization_key.dart';
 import 'package:sale_management/shares/statics/authorization_static.dart';
 import 'package:sale_management/shares/statics/colors_static.dart';
 import 'package:sale_management/shares/statics/fonts.dart';
 import 'package:sale_management/shares/utils/input_decoration_utils.dart';
 import 'package:sale_management/shares/utils/size_config_utils.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:sale_management/shares/utils/validate_utils.dart';
 import 'package:sale_management/shares/widgets/custom_suffix_icon/custom_suffix_icon.dart';
 import 'package:http/http.dart' as http;
 
@@ -24,19 +28,29 @@ class _LoginBodyState extends State<LoginBody> {
   final _formKey = GlobalKey<FormState>();
   var emailController = new TextEditingController();
   var passwordController = new TextEditingController();
+  String email = '';
+  String password ='';
+
+  final FocusNode _focusNode = FocusNode();
+  bool _isComposing = false;
 
   bool remember = false;
   var isLoading = false;
   var isClickSave = false;
 
-  var style = InputDecorationUtils.textFormFieldStyle();
-  var labelStyle = InputDecorationUtils.inputDecorationLabelStyle();
-  var hintStyle = InputDecorationUtils.inputDecorationHintStyle();
-  var enabledBorder = InputDecorationUtils.enabledBorder();
-  var focusedBorder = InputDecorationUtils.focusedBorder();
+  var style;
+  var labelStyle;
+  var hintStyle;
+  var enabledBorder;
+  var focusedBorder;
 
   @override
   Widget build(BuildContext context) {
+     style = InputDecorationUtils.textFormFieldStyle();
+     labelStyle = InputDecorationUtils.inputDecorationLabelStyle();
+     hintStyle = InputDecorationUtils.inputDecorationHintStyle();
+     enabledBorder = InputDecorationUtils.enabledBorder();
+     focusedBorder = InputDecorationUtils.focusedBorder();
     return LoadingOverlay(
       isLoading: isLoading,
       opacity: 0.5,
@@ -104,15 +118,18 @@ class _LoginBodyState extends State<LoginBody> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       style: style,
-      controller: emailController,
       keyboardType: TextInputType.emailAddress,
+      controller: emailController,
       onChanged: (value) => checkFormValid(),
       validator: (value) {
         if (value!.isEmpty) {
           return 'login.message.pleaseEnterYourEmail'.tr();
+        } else if(!ValidateUtils.validatorEmail(email: value)) {
+          return 'login.message.enterValidEmail'.tr();
         }
         return null;
       },
+      focusNode: _focusNode,
       decoration: InputDecoration(
           labelText: 'login.label.email'.tr(),
           labelStyle: labelStyle,
@@ -132,10 +149,10 @@ class _LoginBodyState extends State<LoginBody> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       style: style,
-      obscureText: true,
       controller: passwordController,
       onChanged: (value) => checkFormValid(),
       validator: (value) {
+
         if (value!.isEmpty) {
           return 'login.message.pleaseEnterYourPassword'.tr();
         }
@@ -184,7 +201,7 @@ class _LoginBodyState extends State<LoginBody> {
             ),
           ],
         ),
-        onPressed: () => logIn()
+        onPressed: logIn
       ),
     );
   }
@@ -215,14 +232,34 @@ class _LoginBodyState extends State<LoginBody> {
 
   void checkFormValid() {
     if (isClickSave) {
-      _formKey.currentState!.validate();
+      _formKey.currentState!.validate() ;
     }
   }
 
   void logIn() {
     isClickSave = true;
     if (_formKey.currentState!.validate()) {
-      rout();
+      makePostRequest("").then((value) {
+        Map<String , dynamic> json = {
+          AuthorizationKey.id: 1,
+          AuthorizationKey.accessToken: value['access_token'],
+          AuthorizationKey.refreshToken: value['refresh_token'],
+          AuthorizationKey.tokenType: value['token_type'],
+          AuthorizationKey.scope: value['scope'],
+          AuthorizationKey.expiresIn: value['expires_in'],
+        };
+        AuthorizationDataBase.create(json).then((value) {
+          if(value > 0) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>
+              const HomeScreen(selectIndex: 0)
+              ),
+            );
+          }
+        });
+
+      });
     }
   }
 
@@ -239,7 +276,7 @@ class _LoginBodyState extends State<LoginBody> {
     // );
   }
 
-  Future<void> makePostRequest(String urlPrefix) async {
+  Future<Map<String, dynamic>> makePostRequest(String urlPrefix) async {
 
     String userName = 'spring-security-oauth2-read-write-client';
     String password = 'spring-security-oauth2-read-write-client-password1234';
@@ -259,16 +296,12 @@ class _LoginBodyState extends State<LoginBody> {
         },
         );
 
-    //print('response token:'+response.body);
     if(response.body != '') {
       Map<String, dynamic> tokenResponse = jsonDecode(response.body);
       AuthorizationStatic.tokenObject = tokenResponse;
-      print('tokenResponse:'+tokenResponse.toString());
-      print('AuthorizationStatic store:'+AuthorizationStatic.tokenObject.toString());
-      setState(() {
-        isLoading = false;
-      });
+      return Future.value(tokenResponse);
     }
+    return Future.value({});
   }
 
 }

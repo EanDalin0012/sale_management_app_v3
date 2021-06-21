@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sale_management/screens/login/login_screen.dart';
@@ -11,16 +13,12 @@ class InitializeScreen extends StatefulWidget {
 }
 
 class _InitializeScreenState extends State<InitializeScreen> {
+  
+  
   @override
   Widget build(BuildContext context) {
     SizeConfigUtils.init(context);
-    routLogin();
-    return WillPopScope(
-      onWillPop: () {
-        SystemNavigator.pop();
-        return Future<bool>.value(true);
-      },
-      child: Scaffold(
+    return Scaffold(
         backgroundColor: ColorsUtils.scaffoldBackgroundColor(),
         body: Center(
           child: Column(
@@ -45,15 +43,18 @@ class _InitializeScreenState extends State<InitializeScreen> {
               ],
             ),
         ),
-      ),
     );
   }
 
-  Future<void> routLogin() async {
-    await Future.delayed(const Duration(seconds: 5));
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const LogInScreen()),
-    );
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+      const Duration(seconds: 3), (){
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LogInScreen()),
+      );
+    });
   }
 }

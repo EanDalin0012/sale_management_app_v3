@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:sale_management/screens/login/widgets/login_body.dart';
 import 'package:sale_management/shares/utils/colors_utils.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:sale_management/shares/utils/size_config_utils.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _LogInScreenState extends State<LogInScreen> {
     return WillPopScope(
       onWillPop: () {
         SystemNavigator.pop();
-        return Future<bool>.value(false);
+        return Future<bool>.value(true);
       },
       child: Scaffold(
         backgroundColor: ColorsUtils.scaffoldBackgroundColor(),

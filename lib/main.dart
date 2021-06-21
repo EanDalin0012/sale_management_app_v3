@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:sale_management/screens/choose_language/choose_language_screen.dart';
+import 'package:sale_management/screens/initialize/initialize_screen.dart';
 import 'package:sale_management/screens/login/login_screen.dart';
 import 'package:sale_management/shares/database_sqflite/data_base_chose_language.dart';
 import 'package:sale_management/shares/database_sqflite/data_base_dark_mode.dart';
@@ -10,6 +11,7 @@ import 'package:sale_management/shares/model/key/dark_mode_key.dart';
 import 'package:sale_management/shares/provider/main_provider.dart';
 import 'package:sale_management/shares/statics/dark_mode.dart';
 import 'package:sale_management/shares/utils/device_info.dart';
+import 'package:sale_management/shares/utils/size_config_utils.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -99,7 +101,8 @@ class _MyAppState extends State<MyApp> {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: chose ? const LogInScreen() : const ChooseLanguageScreen(),
+      //home: chose ? const LogInScreen() : const ChooseLanguageScreen(),
+      home: const InitializeScreen(),
     );
   }
 }

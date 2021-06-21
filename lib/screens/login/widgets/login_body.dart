@@ -1,13 +1,17 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_overlay/loading_overlay.dart';
-import 'package:sale_management/screens/home/home_screen.dart';
+import 'package:sale_management/shares/statics/authorization_static.dart';
 import 'package:sale_management/shares/statics/colors_static.dart';
 import 'package:sale_management/shares/statics/fonts.dart';
 import 'package:sale_management/shares/utils/input_decoration_utils.dart';
 import 'package:sale_management/shares/utils/size_config_utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:sale_management/shares/widgets/custom_suffix_icon/custom_suffix_icon.dart';
+import 'package:http/http.dart' as http;
 
 class LoginBody extends StatefulWidget {
   const LoginBody({Key? key}) : super(key: key);
@@ -227,15 +231,48 @@ class _LoginBodyState extends State<LoginBody> {
   }
 
   Future<void> rout() async {
+    makePostRequest("");
+    //
+    // await Future.delayed(const Duration(seconds: 3));
+    //
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(builder: (context) =>
+    //   const HomeScreen(selectIndex: 0)
+    //   ),
+    // );
+  }
 
-    await Future.delayed(const Duration(seconds: 3));
+  Future<void> makePostRequest(String urlPrefix) async {
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) =>
-      const HomeScreen(selectIndex: 0)
-      ),
-    );
+    String userName = 'spring-security-oauth2-read-write-client';
+    String password = 'spring-security-oauth2-read-write-client-password1234';
+
+    String basicAuth = 'Basic '+base64Encode(utf8.encode('$userName:$password'));
+    var url = Uri.parse('http://192.168.43.44:8080/oauth/token');
+    var response = await http.post(
+        url,
+        body: {
+          'client_id': 'spring-security-oauth2-read-write-client',
+          'grant_type': 'password',
+          'username':'admin@gmail.com',
+          'password':'admin1234'
+        },
+        headers: {
+          HttpHeaders.authorizationHeader: basicAuth,
+        },
+        );
+
+    //print('response token:'+response.body);
+    if(response.body != '') {
+      Map<String, dynamic> tokenResponse = jsonDecode(response.body);
+      AuthorizationStatic.tokenObject = tokenResponse;
+      print('tokenResponse:'+tokenResponse.toString());
+      print('AuthorizationStatic store:'+AuthorizationStatic.tokenObject.toString());
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
 }

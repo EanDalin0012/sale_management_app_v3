@@ -42,6 +42,11 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
   var color = const Color(0xff6E747F);
 
   @override
+  void initState() {
+
+  }
+
+  @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     height = (size.height - SizeConfigUtils.screenHeight * 0.06 - SizeConfigUtils.screenHeight * 0.06);

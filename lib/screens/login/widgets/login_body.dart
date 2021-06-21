@@ -222,10 +222,6 @@ class _LoginBodyState extends State<LoginBody> {
   void logIn() {
     isClickSave = true;
     if (_formKey.currentState!.validate()) {
-      setState(() {
-        isLoading = true;
-      });
-
       rout();
     }
   }

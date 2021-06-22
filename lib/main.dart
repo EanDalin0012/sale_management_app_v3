@@ -50,40 +50,6 @@ class _MyAppState extends State<MyApp> {
     fToast = FToast();
     fToast.init(context);
 
-    DataBaseDarkModeUtils.getDarkModeById(1).then((value) {
-      if (value.toString() == '{}') {
-        Map json = {
-          DarkModeKey.id: 1,
-          DarkModeKey.code: '1' // 1=> true, 0=> false
-        };
-        DataBaseDarkModeUtils.create(json).then((value) {
-          if (value > 0) {
-            DarkMode.isDarkMode = false;
-          }
-        });
-      } else {
-        setState(() {
-          Map data = value;
-          if (data[DarkModeKey.code].toString() == '1') {
-            DarkMode.isDarkMode = true;
-          } else {
-            DarkMode.isDarkMode = false;
-          }
-        });
-      }
-    });
-
-    DataBaseChoseLanguage.getChooseLanguageById(1).then((value) {
-      print("value"+value.toString());
-      setState(() {
-        if (value.toString() == '{}') {
-          chose = false;
-        } else {
-          chose = true;
-        }
-      });
-    });
-
     DeviceInfoUtils.initPlatformState().then((value) {
       print(value.toString());
       this.initPlatformState = value.toString();

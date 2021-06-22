@@ -4,7 +4,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_overlay/loading_overlay.dart';
+import 'package:sale_management/screens/forgot_password/forgot_password_screen.dart';
 import 'package:sale_management/screens/home/home_screen.dart';
+import 'package:sale_management/screens/sign_up/sign_up_screen.dart';
 import 'package:sale_management/shares/database_sqflite/authorization_sqflite.dart';
 import 'package:sale_management/shares/model/key/authorization_key.dart';
 import 'package:sale_management/shares/statics/authorization_static.dart';
@@ -26,31 +28,26 @@ class LoginBody extends StatefulWidget {
 
 class _LoginBodyState extends State<LoginBody> {
   final _formKey = GlobalKey<FormState>();
-  var emailController = new TextEditingController();
-  var passwordController = new TextEditingController();
+  var emailController =  TextEditingController();
+  var passwordController =  TextEditingController();
   String email = '';
   String password ='';
 
   final FocusNode _focusNode = FocusNode();
-  bool _isComposing = false;
 
   bool remember = false;
   var isLoading = false;
   var isClickSave = false;
 
-  var style;
-  var labelStyle;
-  var hintStyle;
-  var enabledBorder;
-  var focusedBorder;
+  var style = InputDecorationUtils.textFormFieldStyle();
+  var labelStyle = InputDecorationUtils.inputDecorationLabelStyle();
+  var hintStyle = InputDecorationUtils.inputDecorationHintStyle();
+  var enabledBorder = InputDecorationUtils.enabledBorder();
+  var focusedBorder = InputDecorationUtils.focusedBorder();
 
   @override
   Widget build(BuildContext context) {
-     style = InputDecorationUtils.textFormFieldStyle();
-     labelStyle = InputDecorationUtils.inputDecorationLabelStyle();
-     hintStyle = InputDecorationUtils.inputDecorationHintStyle();
-     enabledBorder = InputDecorationUtils.enabledBorder();
-     focusedBorder = InputDecorationUtils.focusedBorder();
+
     return LoadingOverlay(
       isLoading: isLoading,
       opacity: 0.5,
@@ -90,8 +87,16 @@ class _LoginBodyState extends State<LoginBody> {
                         ),
                         Text('login.label.rememberMe'.tr()),
                         const Spacer(),
-                        GestureDetector(
-                          onTap: () {},
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) =>
+                              const ForgotPasswordScreen()
+                              ),
+                            );
+
+                          },
                           child: Text(
                             'login.label.forgotPassword'.tr(),
                             style: const TextStyle(decoration: TextDecoration
@@ -214,9 +219,15 @@ class _LoginBodyState extends State<LoginBody> {
           'login.label.dontHaveAnAccount'.tr(),
           style: TextStyle(fontSize: getProportionateScreenWidth(16)),
         ),
-        GestureDetector(
+        InkWell(
           // onTap: () => onTabToSignUp(context),
           onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>
+              const SignUpScreen()
+              ),
+            );
 
           },
           child: Text(

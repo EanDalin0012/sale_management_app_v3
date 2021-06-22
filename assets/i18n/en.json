@@ -22,7 +22,7 @@
       "browse": "Browse",
       "exitApp": "Exit App",
       "doYouWantToExitApp": "Do you want to exit app?",
-      "isLoadingCanNotBack": "Is loading can not back"
+      "isLoadingCanNotBack": "Requesting data to the server. You can't back."
     },
     "holder": {
       "enterRemark": "Enter remark",
@@ -63,6 +63,11 @@
     "holder": {
       "enterYourEmail": "Enter your email",
       "enterYourPassword": "Enter your password"
+    }
+  },
+  "forgotPassword": {
+    "label": {
+
     }
   },
   "signUp": {

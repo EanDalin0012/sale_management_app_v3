@@ -21,6 +21,8 @@ class _EditCategoryScreenState extends State<EditCategoryScreen> {
   var loading = false;
   late FToast fToast;
 
+
+
   @override
   void initState() {
     fToast = FToast();

@@ -30,6 +30,9 @@ class _AddBewCategoryBodyState extends State<AddBewCategoryBody> {
   var focusedBorder;
   bool _isLoading = false;
 
+
+
+
   @override
   Widget build(BuildContext context) {
     style = InputDecorationUtils.textFormFieldStyle();

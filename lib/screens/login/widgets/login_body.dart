@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_overlay/loading_overlay.dart';
@@ -8,11 +7,14 @@ import 'package:sale_management/screens/forgot_password/forgot_password_screen.d
 import 'package:sale_management/screens/home/home_screen.dart';
 import 'package:sale_management/screens/sign_up/sign_up_screen.dart';
 import 'package:sale_management/shares/database_sqflite/authorization_sqflite.dart';
+import 'package:sale_management/shares/environment/environment.dart';
 import 'package:sale_management/shares/model/key/authorization_key.dart';
+import 'package:sale_management/shares/service/authorization_service.dart';
 import 'package:sale_management/shares/statics/authorization_static.dart';
 import 'package:sale_management/shares/statics/colors_static.dart';
 import 'package:sale_management/shares/statics/fonts.dart';
 import 'package:sale_management/shares/utils/input_decoration_utils.dart';
+import 'package:sale_management/shares/utils/keyboard_util.dart';
 import 'package:sale_management/shares/utils/size_config_utils.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:sale_management/shares/utils/validate_utils.dart';
@@ -30,10 +32,6 @@ class _LoginBodyState extends State<LoginBody> {
   final _formKey = GlobalKey<FormState>();
   var emailController =  TextEditingController();
   var passwordController =  TextEditingController();
-  String email = '';
-  String password ='';
-
-  final FocusNode _focusNode = FocusNode();
 
   bool remember = false;
   var isLoading = false;
@@ -44,6 +42,15 @@ class _LoginBodyState extends State<LoginBody> {
   var hintStyle = InputDecorationUtils.inputDecorationHintStyle();
   var enabledBorder = InputDecorationUtils.enabledBorder();
   var focusedBorder = InputDecorationUtils.focusedBorder();
+  bool _obscureText = true;
+  var passSvg = 'visibility_off_black_24dp.svg';
+
+  @override
+  void initState() {
+    super.initState();
+    emailController.text = 'admin@gmail.com';
+    passwordController.text ='admin123';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +141,6 @@ class _LoginBodyState extends State<LoginBody> {
         }
         return null;
       },
-      focusNode: _focusNode,
       decoration: InputDecoration(
           labelText: 'login.label.email'.tr(),
           labelStyle: labelStyle,
@@ -154,6 +160,9 @@ class _LoginBodyState extends State<LoginBody> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       style: style,
+      keyboardType: TextInputType.text,
+      textInputAction: TextInputAction.next,
+      obscureText: _obscureText,
       controller: passwordController,
       onChanged: (value) => checkFormValid(),
       validator: (value) {
@@ -171,8 +180,14 @@ class _LoginBodyState extends State<LoginBody> {
         enabledBorder: enabledBorder,
         focusedBorder: focusedBorder,
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: const CustomSuffixIcon(
-            svgIcon: "assets/icons/Lock.svg"
+        suffixIcon: CustomSuffixIcon(
+            onPress: () {
+              setState(() {
+                _obscureText = !_obscureText;
+                passSvg = _obscureText ? 'visibility_off_black_24dp.svg' : 'visibility_black_24dp.svg';
+              });
+            },
+            svgIcon: "assets/icons/"+passSvg,
         ),
       ),
     );
@@ -184,11 +199,12 @@ class _LoginBodyState extends State<LoginBody> {
       width: MediaQuery.of(context).size.width - getProportionateScreenWidth(70),
       child: ElevatedButton(
         style: ButtonStyle(
+           elevation: MaterialStateProperty.all(2.0),
             backgroundColor: MaterialStateProperty.all<Color>(const Color(0xff273965)),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50)
-                )
+                ),
             )
         ),
         child: Stack(
@@ -206,7 +222,20 @@ class _LoginBodyState extends State<LoginBody> {
             ),
           ],
         ),
-        onPressed: logIn
+        onPressed: () async {
+          if (_formKey.currentState!.validate()) {
+            Map<String, dynamic> data = await AuthorizationService.authorization(userName: emailController.text, password: passwordController.text);
+            print('token login screen value: '+data.toString());
+            if(data.toString() != '{}') {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>
+                const HomeScreen(selectIndex: 0)
+                ),
+              );
+            }
+          }
+        }
       ),
     );
   }
@@ -249,6 +278,7 @@ class _LoginBodyState extends State<LoginBody> {
 
   void logIn() {
     isClickSave = true;
+    KeyboardUtil.hideKeyboard(context);
     if (_formKey.currentState!.validate()) {
       makePostRequest("").then((value) {
         Map<String , dynamic> json = {
@@ -261,12 +291,7 @@ class _LoginBodyState extends State<LoginBody> {
         };
         AuthorizationDataBase.create(json).then((value) {
           if(value > 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) =>
-              const HomeScreen(selectIndex: 0)
-              ),
-            );
+
           }
         });
 
@@ -293,14 +318,15 @@ class _LoginBodyState extends State<LoginBody> {
     String password = 'spring-security-oauth2-read-write-client-password1234';
 
     String basicAuth = 'Basic '+base64Encode(utf8.encode('$userName:$password'));
-    var url = Uri.parse('http://192.168.43.44:8080/oauth/token');
+    String uri = Environment.url + "/oauth/token";
+    var url = Uri.parse(uri);
     var response = await http.post(
         url,
         body: {
           'client_id': 'spring-security-oauth2-read-write-client',
           'grant_type': 'password',
-          'username':'admin@gmail.com',
-          'password':'admin1234'
+          'username':emailController.text,
+          'password': passwordController.text
         },
         headers: {
           HttpHeaders.authorizationHeader: basicAuth,
@@ -310,6 +336,7 @@ class _LoginBodyState extends State<LoginBody> {
     if(response.body != '') {
       Map<String, dynamic> tokenResponse = jsonDecode(response.body);
       AuthorizationStatic.tokenObject = tokenResponse;
+      print(tokenResponse);
       return Future.value(tokenResponse);
     }
     return Future.value({});

@@ -24,7 +24,7 @@ class _LogInScreenState extends State<LogInScreen> {
           backgroundColor: ColorsUtils.appBarBackGround(),
           leading: Container(),
           elevation: 0,
-          title: Text('login.label.login'.tr()),
+          title: Text('login.label.login'.tr() , style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
         ),
         body: const SafeArea(
           child: LoginBody()

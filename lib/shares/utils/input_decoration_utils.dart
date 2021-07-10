@@ -39,7 +39,7 @@ class InputDecorationUtils {
 
   static OutlineInputBorder enabledBorder() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(25.0),
+      borderRadius: BorderRadius.circular(60.0),
       borderSide: BorderSide(
         // color: DarkMode.isDarkMode ? Colors.white : Colors.black87,
         color: Colors.white,
@@ -50,8 +50,8 @@ class InputDecorationUtils {
 
   static OutlineInputBorder focusedBorder() {
     return OutlineInputBorder(
-      borderSide: const BorderSide(color: Color(0xff273975), width: 2.0),
-      borderRadius: BorderRadius.circular(25.0),
+      borderSide: const BorderSide(color: Color(0xff273995), width: 2.0),
+      borderRadius: BorderRadius.circular(60.0),
     );
     // if(DarkMode.isDarkMode == true) {
     //   return TextStyle(color: Colors.white);

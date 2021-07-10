@@ -36,7 +36,7 @@ class MainProvider extends ChangeNotifier {
 
   InputDecorationTheme inputDecorationTheme() {
     OutlineInputBorder outlineInputBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(28),
+      borderRadius: BorderRadius.circular(50),
       borderSide: BorderSide(color: ColorsUtils.borderSideColor()),
       gapPadding: 10,
     );

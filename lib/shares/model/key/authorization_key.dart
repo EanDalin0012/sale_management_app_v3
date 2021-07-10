@@ -4,5 +4,5 @@ class AuthorizationKey {
   static const refreshToken = "refresh_token";
   static const expiresIn = "expires_in";
   static const scope = "scope";
-  static const id = "scope";
+  static const id = "id";
 }

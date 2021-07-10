@@ -25,14 +25,14 @@ class AuthorizationDataBase {
   }
 
   Future _createDB(Database db, int version) async {
-    final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    final idType = 'INTEGER PRIMARY KEY';
     final textType = 'TEXT NOT NULL';
     final boolType = 'BOOLEAN NOT NULL';
     final integerType = 'INTEGER NOT NULL';
 
     await db.execute('''
       CREATE TABLE $dataBaseName ( 
-        ${AuthorizationField.id} $textType,
+        ${AuthorizationField.id} $idType,
         ${AuthorizationField.accessToken} $textType, 
         ${AuthorizationField.refreshToken} $textType,
         ${AuthorizationField.expiresIn} $integerType,
@@ -42,24 +42,25 @@ class AuthorizationDataBase {
       ''');
   }
 
-  static Future<int> create(Map json) async {
+  static Future<int> create(Map<String, dynamic> json) async {
+    print("create:"+json.toString());
     final db = await instance.database;
     var data = await db.rawInsert(
         'INSERT INTO $dataBaseName('
-            '${AuthorizationField.id},'
-            '${AuthorizationField.accessToken},'
+            '${AuthorizationField.id}, '
+            '${AuthorizationField.accessToken}, '
             '${AuthorizationField.refreshToken},'
-            '${AuthorizationField.expiresIn},'
+            '${AuthorizationField.expiresIn}, '
             '${AuthorizationField.scope},'
             '${AuthorizationField.tokenType}'
             ') VALUES(?, ?, ?, ?, ?, ?)',
         [
-          json[AuthorizationKey.id],
+          1,
           json[AuthorizationKey.accessToken],
           json[AuthorizationKey.refreshToken],
           json[AuthorizationKey.expiresIn],
           json[AuthorizationKey.scope],
-          json[AuthorizationKey.tokenType],
+          json[AuthorizationKey.tokenType]
         ]
     );
     return data;
@@ -83,15 +84,14 @@ class AuthorizationDataBase {
           json[AuthorizationKey.tokenType],
           json[AuthorizationKey.id]
         ]);
-    print('updated: $count');
     return count;
   }
 
-  static Future<Map> getChooseLanguageById(int id) async {
+  static Future<Map<String, dynamic>> getObjectById(int id) async {
     try {
       final db = await instance.database;
       List<dynamic> vData = await db.rawQuery(
-          'SELECT * FROM $dataBaseName WHERE ${AuthorizationKey.id} = ?',
+          'SELECT * FROM $dataBaseName WHERE ${AuthorizationField.id} = ?',
           [id]);
       if (vData.length > 0) {
         return vData[0];

@@ -42,8 +42,7 @@ class DataBaseChoseLanguage {
   static Future<int> create(Map json) async {
     final db = await instance.database;
     var data = await db.rawInsert(
-        'INSERT INTO $dataBaseName(${ChoseLanguageField
-            .id}, ${ChoseLanguageField.choose}) VALUES(?, ?)',
+        'INSERT INTO $dataBaseName(${ChoseLanguageField.id}, ${ChoseLanguageField.choose}) VALUES(?, ?)',
         [
           json[ChooseLanguageKey.id], json[ChooseLanguageKey.choose]
         ]

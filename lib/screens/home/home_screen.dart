@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sale_management/screens/home/widgets/bottom_navigation_bar_home.dart';
+import 'package:sale_management/screens/home/widgets/my_drawer.dart';
+import 'package:sale_management/screens/home/widgets/sheet_container.dart';
+import 'package:sale_management/shares/statics/colors_static.dart';
 import 'package:sale_management/shares/statics/default.dart';
 import 'package:sale_management/shares/statics/fonts.dart';
 import 'package:sale_management/shares/utils/colors_utils.dart';
@@ -17,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   String titleBar = 'home.label.home'.tr();
   var isShowAppBar = true;
+  int _selectedIndex = 0;
+
   List<Widget> widgetOptions = <Widget>[
     // HomeContainer(),
     // SaleScreen()
@@ -37,7 +44,28 @@ class _HomeScreenState extends State<HomeScreen> {
       onWillPop: () => onBackPress(),
       child: Scaffold(
         backgroundColor: ColorsUtils.scaffoldBackgroundColor(),
+        drawer: MyDrawer(),
         appBar: isShowAppBar ? _appBar() : null,
+          bottomNavigationBar: BottomNavigationBarHome(
+            selectedIndex: _selectedIndex,
+            onTab: (index) {
+              print(index);
+              setState(() {
+                if (index == 0) {
+                  isShowAppBar = true;
+                  // _titleBar = 'Home';
+                } else if (index == 1) {
+                  // _titleBar = 'Sale';
+                  isShowAppBar = false;
+                }
+                if (index >= 2) {
+                  _showModelSheet();
+                } else {
+                  _selectedIndex = index;
+                }
+              });
+            },
+          ),
       ),
     );
   }
@@ -183,4 +211,25 @@ class _HomeScreenState extends State<HomeScreen> {
     );
     return Future<bool>.value(false);
   }
+
+  void _showModelSheet() {
+    var orientation = MediaQuery.of(context).orientation;
+    double height = (MediaQuery.of(context).copyWith().size.height * 0.6);
+    setState(() {
+      if (orientation != Orientation.portrait) {
+        height = MediaQuery.of(context).copyWith().size.height * 0.5;
+      }
+    });
+    showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (BuildContext builder) {
+          return Container(
+            height: height,
+            width: MediaQuery.of(context).size.width,
+            child: SheetContainer(),
+          );
+        });
+  }
+
 }

@@ -6,7 +6,8 @@ import 'package:sale_management/shares/utils/size_config_utils.dart';
 class CustomSuffixIcon extends StatefulWidget {
   final double? svgPaddingLeft;
   final String svgIcon;
-  const CustomSuffixIcon({Key? key, required this.svgIcon, this.svgPaddingLeft}) : super(key: key);
+  final VoidCallback? onPress;
+  const CustomSuffixIcon({Key? key, required this.svgIcon, this.svgPaddingLeft, this.onPress}) : super(key: key);
   @override
   _CustomSuffixIconState createState() => _CustomSuffixIconState();
 }
@@ -25,10 +26,13 @@ class _CustomSuffixIconState extends State<CustomSuffixIcon> {
         getProportionateScreenWidth(20),
         getProportionateScreenWidth(20),
       ),
-      child: SvgPicture.asset(
-        widget.svgIcon,
-        height: getProportionateScreenWidth(20),
-        color: ColorsUtils.svgPictureSufFixIconColor(),
+      child: InkWell(
+        onTap: widget.onPress,
+        child: SvgPicture.asset(
+          widget.svgIcon,
+          height: getProportionateScreenWidth(20),
+          color: ColorsUtils.svgPictureSufFixIconColor(),
+        ),
       ),
     );
   }

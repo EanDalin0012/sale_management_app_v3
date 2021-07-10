@@ -20,6 +20,7 @@ class InitializeScreen extends StatefulWidget {
 class _InitializeScreenState extends State<InitializeScreen> {
   
   var chose = false;
+
   @override
   Widget build(BuildContext context) {
     SizeConfigUtils.init(context);

@@ -23,7 +23,9 @@ class _ElevatedButtonBackState extends State<ElevatedButtonBack> {
                   const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15)
+                          topRight: Radius.circular(15),
+                          bottomLeft: Radius.circular(15),
+                         bottomRight: Radius.circular(15),
                       )
                   )
               )

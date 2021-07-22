@@ -2,17 +2,18 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:loading_overlay/loading_overlay.dart';
 import 'package:sale_management/screens/forgot_password/forgot_password_screen.dart';
 import 'package:sale_management/screens/home/home_screen.dart';
 import 'package:sale_management/screens/sign_up/sign_up_screen.dart';
 import 'package:sale_management/shares/database_sqflite/authorization_sqflite.dart';
 import 'package:sale_management/shares/environment/environment.dart';
+import 'package:sale_management/shares/helper/AESHelper.dart';
 import 'package:sale_management/shares/model/key/authorization_key.dart';
 import 'package:sale_management/shares/service/authorization_service.dart';
 import 'package:sale_management/shares/statics/authorization_static.dart';
 import 'package:sale_management/shares/statics/colors_static.dart';
 import 'package:sale_management/shares/statics/fonts.dart';
+import 'package:sale_management/shares/utils/date_utils.dart';
 import 'package:sale_management/shares/utils/input_decoration_utils.dart';
 import 'package:sale_management/shares/utils/keyboard_util.dart';
 import 'package:sale_management/shares/utils/size_config_utils.dart';
@@ -42,31 +43,37 @@ class _LoginBodyState extends State<LoginBody> {
   var hintStyle = InputDecorationUtils.inputDecorationHintStyle();
   var enabledBorder = InputDecorationUtils.enabledBorder();
   var focusedBorder = InputDecorationUtils.focusedBorder();
+  late AESHelper aESHelper = AESHelper();
   bool _obscureText = true;
   var passSvg = 'visibility_off_black_24dp.svg';
 
   @override
   void initState() {
     super.initState();
+    myTesting();
     emailController.text = 'admin@gmail.com';
     passwordController.text ='admin123';
+  }
+
+  void myTesting() {
+    String d = DateUtil.currentDateAddDuration(const Duration(seconds: 10800));
+
+    DateTime t = DateTime.now();
+
+    print('print :'+DateTime.now().compareTo(t).toString());
+
+    print('\nd: :'+d.toString());
+    var today = DateTime.now();
+    var formatter = new DateFormat('dd-MM-yyyy hh:mm:ss');
+    var fiftyDaysFromNow = today.add(const Duration(seconds: 10800));
+    String formattedDate = formatter.format(fiftyDaysFromNow);
+    print('fiftyDaysFromNow :'+formattedDate);
   }
 
   @override
   Widget build(BuildContext context) {
 
-    return LoadingOverlay(
-      isLoading: isLoading,
-      opacity: 0.5,
-      progressIndicator: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const CircularProgressIndicator(),
-          SizedBox(height: SizeConfigUtils.screenHeight * 0.02),
-          const Text('Loading'),
-        ],
-      ),
-      child: Form(
+    return Form(
         key: _formKey,
         child: SingleChildScrollView(
           child: Column(
@@ -122,7 +129,6 @@ class _LoginBodyState extends State<LoginBody> {
             ],
           ),
         ),
-      ),
     );
 
   }
@@ -215,17 +221,21 @@ class _LoginBodyState extends State<LoginBody> {
                 fontSize: 20,
                 color: Colors.white),)
             ),
-            const Positioned(
+             Positioned(
                 right: 0,
                 top: 12.5,
-                child: FaIcon(FontAwesomeIcons.signOutAlt, size: 25, color: Colors.white)
+                child: isLoading ?  Container( margin: EdgeInsets.only(top: 5, right: 5), width: 15, height: 15,child: CircularProgressIndicator( strokeWidth: 2.5, valueColor: AlwaysStoppedAnimation<Color>(Colors.white70),) )  : FaIcon(FontAwesomeIcons.signOutAlt, size: 25, color: Colors.white)
             ),
           ],
         ),
         onPressed: () async {
+           setState(() {
+             isLoading = true;
+           });
           if (_formKey.currentState!.validate()) {
             Map<String, dynamic> data = await AuthorizationService.authorization(userName: emailController.text, password: passwordController.text);
             print('token login screen value: '+data.toString());
+
             if(data.toString() != '{}') {
               Navigator.push(
                 context,
@@ -233,6 +243,10 @@ class _LoginBodyState extends State<LoginBody> {
                 const HomeScreen(selectIndex: 0)
                 ),
               );
+            } else {
+              setState(() {
+                isLoading = false;
+              });
             }
           }
         }
@@ -340,6 +354,14 @@ class _LoginBodyState extends State<LoginBody> {
       return Future.value(tokenResponse);
     }
     return Future.value({});
+  }
+
+  Widget loading() {
+    return Image.asset(
+      "assets/icons/waiting-icon-gif-1.gif",
+      height: 125.0,
+      width: 125.0,
+    );
   }
 
 }

@@ -51,7 +51,11 @@ class WidgetsUtil {
     );
   }
 
-  static Widget overlayKeyBardContainer({required String text}) {
+  static Widget overlayKeyBardContainer({required String text, required bool isLoading}) {
+    var title = text;
+    if(isLoading == true ) {
+      title = 'Loading';
+    }
     return Container(
       height: 45,
       decoration: BoxDecoration(
@@ -63,10 +67,21 @@ class WidgetsUtil {
           ),
         ),
       ),
-      child: Center(child: Text(text, style: TextStyle(
-          fontWeight: FontWeight.w700,
-          color: ColorsUtils.buttonColorContainer(),
-          fontSize: 18))),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          isLoading == true ?
+          Container(
+               margin: EdgeInsets.only(top: 5, right: 20, ), width: 20, height: 20,
+               child: CircularProgressIndicator( valueColor: AlwaysStoppedAnimation<Color>(Colors.redAccent))
+           ) : Container(),
+            Center(child: Text(title, style: TextStyle(
+                fontWeight: FontWeight.w700,
+                color: ColorsUtils.buttonColorContainer(),
+                fontSize: 18))
+            ),
+        ],
+      ),
     );
   }
 

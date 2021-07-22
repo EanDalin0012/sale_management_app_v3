@@ -57,8 +57,7 @@ class _EditCategoryBodyState extends State<EditCategoryBody> {
                       KeyboardUtil.hideKeyboard(context);
                       save();
                     },
-                    child: WidgetsUtil.overlayKeyBardContainer(
-                        text: 'common.label.update'.tr())
+                    child: WidgetsUtil.overlayKeyBardContainer(text: 'common.label.update'.tr(), isLoading: false)
                 )
               ]
           )

@@ -2,10 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sale_management/screens/choose_language/choose_language_screen.dart';
 import 'package:sale_management/screens/login/login_screen.dart';
+import 'package:sale_management/shares/database_sqflite/authorization_sqflite.dart';
 import 'package:sale_management/shares/database_sqflite/data_base_chose_language.dart';
 import 'package:sale_management/shares/database_sqflite/data_base_dark_mode.dart';
+import 'package:sale_management/shares/model/key/authorization_key.dart';
 import 'package:sale_management/shares/model/key/dark_mode_key.dart';
 import 'package:sale_management/shares/statics/dark_mode.dart';
 import 'package:sale_management/shares/utils/colors_utils.dart';
@@ -48,7 +51,7 @@ class _InitializeScreenState extends State<InitializeScreen> {
                     width: 20,
                     height: 20,
                     child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white70),
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
                   ),
                   const SizedBox(
@@ -69,6 +72,45 @@ class _InitializeScreenState extends State<InitializeScreen> {
   @override
   void initState() {
     super.initState();
+
+    AuthorizationDataBase.getObjectById(1).then((value) {
+
+      String formattedString = value[AuthorizationKey.dateTime];
+      var stringArr = formattedString.split(' ');
+      var dateString = stringArr[0];
+      var dateStringArr =dateString.split('-');
+
+      String years = dateStringArr[2].toString();
+      String month = dateStringArr[1].toString();
+      String day = dateStringArr[0].toString();
+      String dateCombind = years.toString() + '-' +month.toString()+'-'+day.toString();
+
+      String myDate =dateCombind + ' '+stringArr[1];
+
+      print('myDate 0:'+myDate);
+
+      DateTime now = DateTime.now();
+      // String formattedDate = DateFormat('yyyy-MM-dd hh:mm:ss').format(now);
+      // DateTime now1 = DateTime.parse(formattedDate);
+      
+      // print('formattedDate:'+formattedDate);
+      // print('date.hour.toString():'+now1.hour.toString());
+
+      DateTime date1 = DateTime.parse('2021-07-19 14:32:00.000');
+      print(now.toString());
+      print(date1.toString());
+      //
+      if(now.compareTo(date1) == true) {
+        print('compareTo:');
+      }
+      if(now.isAfter(date1)) {
+        print('isAfter:');
+      }
+      if(now.isBefore(date1)) {
+        print('isBefore:');
+      }
+
+    });
 
     DataBaseDarkModeUtils.getDarkModeById(1).then((value) {
       if (value.toString() == '{}') {
@@ -118,4 +160,5 @@ class _InitializeScreenState extends State<InitializeScreen> {
 
     });
   }
+
 }

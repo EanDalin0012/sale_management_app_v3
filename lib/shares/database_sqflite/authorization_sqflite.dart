@@ -37,7 +37,8 @@ class AuthorizationDataBase {
         ${AuthorizationField.refreshToken} $textType,
         ${AuthorizationField.expiresIn} $integerType,
         ${AuthorizationField.scope} $textType,
-         ${AuthorizationField.tokenType} $textType
+        ${AuthorizationField.tokenType} $textType,
+        ${AuthorizationField.dateTime} $textType
         )
       ''');
   }
@@ -47,20 +48,22 @@ class AuthorizationDataBase {
     final db = await instance.database;
     var data = await db.rawInsert(
         'INSERT INTO $dataBaseName('
-            '${AuthorizationField.id}, '
-            '${AuthorizationField.accessToken}, '
+            '${AuthorizationField.id},'
+            '${AuthorizationField.accessToken},'
             '${AuthorizationField.refreshToken},'
             '${AuthorizationField.expiresIn}, '
             '${AuthorizationField.scope},'
-            '${AuthorizationField.tokenType}'
-            ') VALUES(?, ?, ?, ?, ?, ?)',
+            '${AuthorizationField.tokenType},'
+            '${AuthorizationField.dateTime}'
+            ') VALUES(?, ?, ?, ?, ?, ?, ?)',
         [
-          1,
+          json[AuthorizationKey.id],
           json[AuthorizationKey.accessToken],
           json[AuthorizationKey.refreshToken],
           json[AuthorizationKey.expiresIn],
           json[AuthorizationKey.scope],
-          json[AuthorizationKey.tokenType]
+          json[AuthorizationKey.tokenType],
+          json[AuthorizationKey.dateTime]
         ]
     );
     return data;
@@ -74,7 +77,8 @@ class AuthorizationDataBase {
             '${AuthorizationField.refreshToken} = ?, '
             '${AuthorizationField.expiresIn} = ?, '
             '${AuthorizationField.scope} = ?, '
-            '${AuthorizationField.tokenType} = ? '
+            '${AuthorizationField.tokenType} = ?, '
+            '${AuthorizationField.dateTime} = ? '
             'WHERE ${AuthorizationField.id} = ?',
         [
           json[AuthorizationKey.accessToken],
@@ -82,6 +86,7 @@ class AuthorizationDataBase {
           json[AuthorizationKey.expiresIn],
           json[AuthorizationKey.scope],
           json[AuthorizationKey.tokenType],
+          json[AuthorizationKey.dateTime],
           json[AuthorizationKey.id]
         ]);
     return count;

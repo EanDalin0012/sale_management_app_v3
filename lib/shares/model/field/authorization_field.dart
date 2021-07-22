@@ -7,4 +7,5 @@ class AuthorizationField {
   static const expiresIn = "expires_in";
   static const scope = "scope";
   static const id = "id";
+  static const dateTime = "dateTime";
 }

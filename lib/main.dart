@@ -11,6 +11,7 @@ import 'package:sale_management/shares/model/key/dark_mode_key.dart';
 import 'package:sale_management/shares/provider/main_provider.dart';
 import 'package:sale_management/shares/statics/dark_mode.dart';
 import 'package:sale_management/shares/utils/device_info.dart';
+import 'package:sale_management/shares/utils/eas_crypto_utils.dart';
 import 'package:sale_management/shares/utils/size_config_utils.dart';
 
 Future<void> main() async {
@@ -47,6 +48,9 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
+
+
     fToast = FToast();
     fToast.init(context);
 

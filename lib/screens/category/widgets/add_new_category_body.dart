@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:loading_overlay/loading_overlay.dart';
+import 'package:sale_management/screens/category/success_category_screen.dart';
+import 'package:sale_management/shares/model/key/category_key.dart';
+import 'package:sale_management/shares/service/http_service.dart';
 import 'package:sale_management/shares/utils/colors_utils.dart';
 import 'package:sale_management/shares/utils/input_decoration_utils.dart';
 import 'package:sale_management/shares/utils/keyboard_util.dart';
@@ -29,9 +31,7 @@ class _AddBewCategoryBodyState extends State<AddBewCategoryBody> {
   var enabledBorder;
   var focusedBorder;
   bool _isLoading = false;
-
-
-
+  var isSave = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +40,7 @@ class _AddBewCategoryBodyState extends State<AddBewCategoryBody> {
     hintStyle = InputDecorationUtils.inputDecorationHintStyle();
     enabledBorder = InputDecorationUtils.enabledBorder();
     focusedBorder = InputDecorationUtils.focusedBorder();
-    return LoadingOverlay(
-      child: Form(
+    return Form(
           key: _formKey,
           child: Column(
               children: <Widget>[
@@ -49,24 +48,18 @@ class _AddBewCategoryBodyState extends State<AddBewCategoryBody> {
                 InkWell(
                     onTap: () {
                       KeyboardUtil.hideKeyboard(context);
-                      save();
+                      if(_isLoading == false) {
+                        save();
+                      }
+                      setState(() {
+                        _isLoading = true;
+                      });
+
                     },
-                    child: WidgetsUtil.overlayKeyBardContainer(
-                        text: 'common.label.save'.tr())
+                    child: WidgetsUtil.overlayKeyBardContainer(text: 'common.label.save'.tr(), isLoading: _isLoading)
                 )
               ]
           )
-      ),
-      isLoading: this._isLoading,
-      opacity: 0.5,
-      progressIndicator: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          CircularProgressIndicator(),
-          SizedBox(height: SizeConfigUtils.screenHeight * 0.02),
-          Text('Loading'),
-        ],
-      ),
     );
   }
 
@@ -150,16 +143,25 @@ class _AddBewCategoryBodyState extends State<AddBewCategoryBody> {
     );
   }
 
+  Widget loading() {
+    return Container();
+  }
 
   void save() {
     this.isClickSave = true;
     if (_formKey.currentState!.validate()) {
       widget.onChanged(true);
-      setState(() {
-        _isLoading = true;
-      });
+      Map<String ,dynamic> json = {
+        CategoryKey.name: nameController.text,
+        CategoryKey.remark: remarkController.text
+      };
+      HttpService.httpPost(endPoint: "/api/mob/v0/category/save", json: json).then((value) {
+        if(value.toString() != '{}') {
+          rout(value[CategoryKey.id]);
+        }
 
-      rout();
+      });
+      //
     }
   }
 
@@ -169,22 +171,19 @@ class _AddBewCategoryBodyState extends State<AddBewCategoryBody> {
     }
   }
 
-  Future<void> rout() async {
-
-    await Future.delayed(Duration(seconds: 10));
-
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) =>
-    //       CategorySuccessScreen(
-    //         isAddScreen: true,
-    //         vData: {
-    //           CategoryKey.id: 'Abc20210212',
-    //           CategoryKey.name: nameController.text,
-    //           CategoryKey.remark: remarkController.text
-    //         },
-    //       )),
-    // );
+  Future<void> rout(int id) async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) =>
+          SuccessCategoryScreen(
+            isAddScreen: true,
+            vData: {
+              CategoryKey.id: id,
+              CategoryKey.name: nameController.text,
+              CategoryKey.remark: remarkController.text
+            },
+          )),
+    );
   }
 
 }
